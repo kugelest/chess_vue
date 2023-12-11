@@ -7,7 +7,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css';
 <template>
     <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
         <a class="navbar-brand" href="/">
-            <img src="./chess_icon.png" alt="" width="30" height="30" class="d-inline-block align-text-top">
+            <img src="@/assets/images/chess_icon.png" width="30" height="30" class="d-inline-block align-text-top" />
              Chess
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">

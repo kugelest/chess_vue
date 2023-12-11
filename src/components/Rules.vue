@@ -23,7 +23,7 @@ import 'bootstrap/dist/js/bootstrap.bundle';
                         <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
                                 <div>
-                                    <img src="./images/king_moves.jpg" alt="moves" class="img_rules">
+                                    <img src="@/assets/images/king_moves.jpg" alt="moves" class="img_rules">
                                 </div>
                                 <div>
                                     <span>The King may never move into check, meaning the King may never move into a square
@@ -46,7 +46,7 @@ import 'bootstrap/dist/js/bootstrap.bundle';
                         <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
                                 <div>
-                                    <img src="./king_moves.jpg" alt="moves" class="img_rules">
+                                    <img src="@/assets/images/king_moves.jpg" alt="moves" class="img_rules">
                                 </div>
                             </div>
                         </div>
@@ -62,7 +62,7 @@ import 'bootstrap/dist/js/bootstrap.bundle';
                         <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
                                 <div>
-                                    <img src="./rook_moves.jpg" alt="moves" class="img_rules">
+                                    <img src="@/assets/images/rook_moves.jpg" alt="moves" class="img_rules">
                                 </div>
                             </div>
                         </div>
@@ -77,7 +77,7 @@ import 'bootstrap/dist/js/bootstrap.bundle';
                         <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
                                 <div>
-                                    <img src="./assets/images/bishop_moves.jpg" alt="moves" class="img_rules">
+                                    <img src="@/assets/images/bishop_moves.jpg" alt="moves" class="img_rules">
                                 </div>
                                 <div>
                                     <span>Each Bishop can only move on the same colour squares, as it started the
@@ -97,7 +97,7 @@ import 'bootstrap/dist/js/bootstrap.bundle';
                         <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
                                 <div>
-                                    <img src="./knight_moves.jpg" alt="moves" class="img_rules">
+                                    <img src="@/assets/images/knight_moves.jpg" alt="moves" class="img_rules">
                                 </div>
                                 <div>
                                     <span>The Knight can jump to any square in L shape. This is the only piece that can jump
@@ -117,7 +117,7 @@ import 'bootstrap/dist/js/bootstrap.bundle';
                         <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
                                 <div>
-                                    <img src="./pawn_moves.jpg" alt="moves" class="img_rules">
+                                    <img src="@/assets/images/pawn_moves.jpg" alt="moves" class="img_rules">
                                 </div>
                                 <div>
                                     <span>After its first move the Pawn may only advance one square at a time. The Pawn
