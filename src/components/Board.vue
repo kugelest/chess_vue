@@ -70,7 +70,7 @@ onMounted(updateBoard)
 #board {
 	font-family: Arial;
 	display: grid;
-  grid-template-columns: repeat(8, 1fr);
+  	grid-template-columns: repeat(8, 1fr);
 	grid-auto-rows: 1fr;
 	.square {
 		background: green;

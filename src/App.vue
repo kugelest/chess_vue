@@ -1,28 +1,12 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
+import NavBar from './components/Nav.vue'
 </script>
 
 <template>
-  <header>
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/game">Game</RouterLink>
-      </nav>
-  </header>
-
-  <RouterView />
+    <NavBar />
+	<RouterView />
 </template>
 
 <style scoped>
-
-nav {
-	margin: 10px;
-	a {
-		padding: 10px;
-		color: green;
-		&.router-link-exact-active {
-			background: grey;
-		}
-	}
-}
 </style>
