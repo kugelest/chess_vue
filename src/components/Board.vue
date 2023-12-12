@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { reactive, onMounted } from 'vue'
+import Square from './Square.vue';
 
 interface Square {
   coord: string
@@ -24,10 +25,6 @@ const state = reactive<State>({
 let from = ''
 let to = ''
 
-const coord_squares = {
-	'files': ['a1', 'b1', 'c1', 'd1', 'e1', 'f1', 'g1', 'h1'],
-	'ranks': ['a1', 'a2', 'a3', 'a4', 'a5', 'a6', 'a7', 'a8']
-}
 
 function updateBoard() {
 	fetch('http://localhost:9000/squaresJson')
@@ -85,14 +82,7 @@ onMounted(updateBoard)
 
 <template>
 	<div id="board">
-		<div v-for="square in state.squares" :id="square.coord" :class="square.color" class="square" @click="squareClick">
-			<span class="piece">{{ square.piece }}</span>
-			<span v-if="coord_squares.files.includes(square.coord)" class="coord file">{{ square.coord[0] }}</span>
-			<span v-if="coord_squares.ranks.includes(square.coord)" class="coord rank">{{ square.coord[1] }}</span>
-			<div v-if="state.move_options.includes(square.coord)" class="move_option"></div>
-			<div v-if="state.selected == square.coord" class="selected"></div>
-			<div v-if="state.checked_coord == square.coord" class="checked"></div>
-		</div>
+		<Square v-for="square in state.squares" :coord="square.coord" :color="square.color" @click="squareClick" />
 	</div>
 </template>
 
