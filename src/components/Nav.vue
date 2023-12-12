@@ -1,33 +1,50 @@
 <script setup lang="ts">
-import BootstrapVue from 'bootstrap-vue';
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap-vue/dist/bootstrap-vue.css';
 </script>
 
 <template>
-    <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
-        <a class="navbar-brand" href="/">
-            <img src="@/assets/images/chess_icon.png" width="30" height="30" class="d-inline-block align-text-top" />
-             Chess
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <RouterLink to="/" class="nav-link">Home</RouterLink>
-                </li>
-                <li class="nav-item">
-                    <RouterLink to="/game/play" class="nav-link">Play</RouterLink>
-                </li>
-                <li class="nav-item">
-                    <RouterLink to="/rules" class="nav-link">Rules</RouterLink>
-                </li>
-            </ul>
-        </div>
-    </nav>
+	<header>
+		<img src="@/assets/images/chess_icon.png" />
+		<div class="title"> Chess </div>
+		<nav>
+			<RouterLink to="/" class="nav-link">Home</RouterLink>
+			<RouterLink to="/game/play" class="nav-link">Play</RouterLink>
+			<RouterLink to="/rules" class="nav-link">Rules</RouterLink>
+			<RouterLink to="/test" class="nav-link">Test</RouterLink>
+		</nav>
+	</header>
 </template>
 
 <style scoped>
+header {
+	display: flex;
+	align-items: center;
+	container-type: size;
+	height: 50px;
+	background-color: rgb(40, 40, 40);
+}
+
+img {
+	height: 100cqh;
+}
+
+.title {
+	color: white;
+	font-size: 60cqh;
+	margin-left: 5px;
+	margin-right: 30px;
+}
+
+nav {
+	display: flex;
+	gap: 25px;
+}
+
+.nav-link {
+	color: grey;
+}
+
+.router-link-active {
+	color: white !important;
+}
+
 </style>

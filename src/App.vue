@@ -4,10 +4,18 @@ import NavBar from './components/Nav.vue'
 </script>
 
 <template>
-    <NavBar />
-    <div class="container">
-        <RouterView />
-    </div>
+	<NavBar />
+	<RouterView />
 </template>
 
-<style scoped></style>
+<style>
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Arial, Helvetica, sans-serif;
+}
+html {
+	margin: 0;
+	padding: 0;
+}
+</style>

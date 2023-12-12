@@ -1,8 +1,4 @@
 <script lang="ts" setup>
-import BootstrapVue from 'bootstrap-vue';
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap-vue/dist/bootstrap-vue.css';
-import 'bootstrap/dist/js/bootstrap.bundle';
 </script>
 
 <template>
@@ -134,8 +130,8 @@ import 'bootstrap/dist/js/bootstrap.bundle';
         <div class="col-1"></div>
     </div>
 </template>
-  
+
 <style>
 /* Any custom styles for this component */
 </style>
-  
+

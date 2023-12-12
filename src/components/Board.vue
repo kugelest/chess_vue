@@ -102,7 +102,7 @@ onMounted(updateBoard)
 #board {
 	font-family: Arial;
 	display: grid;
-  	grid-template-columns: repeat(8, 1fr);
+  grid-template-columns: repeat(8, 1fr);
 	grid-auto-rows: 1fr;
 	.square {
 		display: flex;
@@ -161,17 +161,17 @@ onMounted(updateBoard)
 			pointer-events: none;
 		}
 	}
-	&::before {
-    content: '';
-    width: 0;
-    padding-bottom: 100%;
-    grid-row: 1 / 1;
-    grid-column: 1 / 1;
-	}
-	*:first-child {
-    grid-row: 1 / 1;
-    grid-column: 1 / 1;
-	}
+	/* &::before { */
+ /*    content: ''; */
+ /*    width: 0; */
+ /*    padding-bottom: 100%; */
+ /*    grid-row: 1 / 1; */
+ /*    grid-column: 1 / 1; */
+	/* } */
+	/* *:first-child { */
+ /*    grid-row: 1 / 1; */
+ /*    grid-column: 1 / 1; */
+	/* } */
 }
 </style>
 
