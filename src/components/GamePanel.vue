@@ -15,30 +15,16 @@ interface State {
 	redo_moves: Array<string>
 }
 
-const state = reactive<State>({
+
+const props = defineProps<{
 	turn: '',
 	winner: '',
 	advantage: 0,
 	capture_stack: null,
 	undo_moves: [],
 	redo_moves: [],
-})
+}>()
 
-function updateGamePanel() {
-	fetch('http://localhost:9000/gameInfoJson')
-		.then(res => res.json())
-		.then(data => {
-			state.turn = data.turn
-			state.winner = data.winner
-			state.advantage = data.advantage
-			state.capture_stack = data.capture_stack
-			state.undo_moves = data.undo_moves
-			state.redo_moves = data.redo_moves
-		})
-		.catch(err => console.log(err.message))
-}
-
-onMounted(updateGamePanel)
 </script>
 
 
@@ -52,8 +38,8 @@ onMounted(updateGamePanel)
 			<div class="name">PLAYER: Black</div>
 		</div>
 		<div id="move_history">
-			<div v-for="undo_move in state.undo_moves" class="undo_move">{{ undo_move }}</div>
-			<div v-for="redo_move in state.redo_moves" class="redo_move">{{ redo_move }}</div>
+			<div v-for="undo_move in undo_moves" class="undo_move">{{ undo_move }}</div>
+			<div v-for="redo_move in redo_moves" class="redo_move">{{ redo_move }}</div>
 		</div>
 		<div class="buttons">
 			<button id="undo" type="button">&#8678;</button>
@@ -75,6 +61,8 @@ onMounted(updateGamePanel)
 
 <style scoped>
 #info_panel {
+	color: white;
+	background-color: dimgrey;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -88,6 +76,12 @@ onMounted(updateGamePanel)
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		.undo_move, .redo_move {
+			&:hover {
+				background-color: white;
+			}
+			&.current {
+				background-color: white;
+			}
 			padding: 1px;
 		}
 	}

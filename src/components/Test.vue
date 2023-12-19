@@ -19,7 +19,6 @@
 	height: 100%;
 	/* height: 100vh; */
 	/* width: 500px; */
-	background-color: green;
 }
 .div2 {
 	flex: 1;

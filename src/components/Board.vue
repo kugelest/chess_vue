@@ -12,7 +12,7 @@ interface Square {
 }
 
 interface State {
-	squares: Array<Square>
+	squares: Array<Square>,
 	move_options: Array<string>
 	selected: string
 	checked_coord: string
@@ -25,16 +25,14 @@ const state = reactive<State>({
 	checked_coord: ''
 })
 
+const props = defineProps<{
+	squares: Array<Square>,
+}>()
+
 let from = ''
 let to = ''
 
 
-function updateBoard() {
-	fetch('http://localhost:9000/squaresJson')
-		.then(res => res.json())
-		.then(data => state.squares = data)
-		.catch(err => console.log(err.message))
-}
 
 function checkedCoord() {
 	fetch(`http://localhost:9000/checkedCoordJson`)
@@ -52,7 +50,7 @@ function moveOptions() {
 
 function move() {
 	fetch(`http://localhost:9000/game/play/move/${from}/${to}`)
-		.then(updateBoard)
+		// .then(updateBoard)
 		.then(checkedCoord)
 		.then(clearMove)
 }
@@ -76,14 +74,14 @@ function handleSquareClick(coord: string) {
 	}
 }
 
-onMounted(updateBoard)
+// onMounted(updateBoard)
 </script>
 
 
 
 <template>
 	<div id="board">
-		<Square v-for="square in state.squares"
+		<Square v-for="square in squares"
 			:coord="square.coord"
 			:color="square.color"
 			:piece="square.piece"
