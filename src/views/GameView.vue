@@ -1,6 +1,37 @@
 <script setup lang="ts">
 import Board from '../components/Board.vue'
 import GamePanel from '../components/GamePanel.vue'
+import { reactive, onMounted } from 'vue'
+
+
+function connectWebSocket() {
+	var websocket = new WebSocket("ws://localhost:9000/websocket");
+	// websocket.setTimeout
+
+	websocket.onopen = function(e) {
+		console.log("Connection established!");
+	};
+
+	websocket.onclose = function(e) {
+		console.log("Connection closed!");
+	};
+
+	websocket.onerror = function(e) {
+		console.log("Error: " + e.data);
+	};
+
+	websocket.onmessage = function(e) {
+		if (typeof e.data === "string") {
+			console.log(e.data);
+			// updateGame(JSON.parse(e.data))
+    }
+		else {
+			console.log(e.data);
+		}
+	};
+}
+
+onMounted(connectWebSocket)
 </script>
 
 <template>

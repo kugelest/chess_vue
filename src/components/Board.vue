@@ -3,9 +3,12 @@ import { reactive, onMounted } from 'vue'
 import Square from './Square.vue';
 
 interface Square {
-  coord: string
-  color: string
-	piece: string
+  coord: string;
+  color: string;
+  piece: string;
+  selected: boolean;
+  move_option: boolean;
+  checked: boolean;
 }
 
 interface State {
@@ -61,9 +64,7 @@ function clearMove() {
 	state.move_options = []
 }
 
-function squareClick(e: MouseEvent) {
-	const square = e.target as HTMLElement
-	const coord = square.id
+function handleSquareClick(coord: string) {
 	if (from == '') {
 		from = coord
 		state.selected = coord
@@ -82,7 +83,14 @@ onMounted(updateBoard)
 
 <template>
 	<div id="board">
-		<Square v-for="square in state.squares" :coord="square.coord" :color="square.color" @click="squareClick" />
+		<Square v-for="square in state.squares"
+			:coord="square.coord"
+			:color="square.color"
+			:piece="square.piece"
+			:selected="state.selected === square.coord"
+			:move_option="state.move_options.includes(square.coord)"
+			:checked="state.checked_coord === square.coord"
+			@squareClick="handleSquareClick" />
 	</div>
 </template>
 
@@ -94,74 +102,6 @@ onMounted(updateBoard)
 	display: grid;
   grid-template-columns: repeat(8, 1fr);
 	grid-auto-rows: 1fr;
-	.square {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		container-type: size;
-		&.white {
-			background-color: white;
-			.coord {
-				color: darkgrey;
-			}
-		}
-		&.black {
-			background-color: darkgrey;
-			.coord {
-				color: white;
-			}
-		}
-		.selected, .move_option, .checked {
-			position: absolute;
-			z-index: 0;
-			width: 100%;
-			height: 100%;
-			pointer-events: none;
-		}
-		.selected {
-			background-color: rgba(66, 126, 245, 0.7);
-		}
-		.move_option {
-			background-color: rgba(72, 245, 66, 0.7);
-		}
-		.checked {
-			background-color: rgba(212, 42, 42, 0.7);
-		}
-		.coord {
-			z-index: 1;
-			font-size: 13cqh;
-			font-weight: bold;
-			&.rank {
-				align-self: start;
-				margin-left: 4cqh;
-				margin-right: auto;
-
-			}
-			&.file {
-				align-self: end;
-				margin-right: 4cqh;
-				margin-left: auto;
-			}
-		}
-		.piece {
-			position: absolute;
-			z-index: 1;
-			font-size: 100cqh;
-			user-select: none;
-			pointer-events: none;
-		}
-	}
-	/* &::before { */
- /*    content: ''; */
- /*    width: 0; */
- /*    padding-bottom: 100%; */
- /*    grid-row: 1 / 1; */
- /*    grid-column: 1 / 1; */
-	/* } */
-	/* *:first-child { */
- /*    grid-row: 1 / 1; */
- /*    grid-column: 1 / 1; */
-	/* } */
 }
 </style>
 

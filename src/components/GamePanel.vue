@@ -51,7 +51,10 @@ onMounted(updateGamePanel)
 			</div>
 			<div class="name">PLAYER: Black</div>
 		</div>
-		<div id="move_history"></div>
+		<div id="move_history">
+			<div v-for="undo_move in state.undo_moves" class="undo_move">{{ undo_move }}</div>
+			<div v-for="redo_move in state.redo_moves" class="redo_move">{{ redo_move }}</div>
+		</div>
 		<div class="buttons">
 			<button id="undo" type="button">&#8678;</button>
 			<button id="redo" type="button">&#8680;</button>
@@ -84,7 +87,7 @@ onMounted(updateGamePanel)
 		overflow: auto;
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		.move, .redo_move {
+		.undo_move, .redo_move {
 			padding: 1px;
 		}
 	}
